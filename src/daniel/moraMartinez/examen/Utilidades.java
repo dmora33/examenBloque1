@@ -10,12 +10,26 @@ public class Utilidades {
 
 	public static String pedirTexto() {
 		dile("dime un texto");
-		Scanner scan = new Scanner(System.in);
-		String texto = scan.next();
-		
-		// utilizo normalizaEspacios
-		texto= normalizaEspacios(texto);
+
+		String mensajeError;
+		String texto = "";
+		// no me ha valido para nada añadir un control de error,o no me acuerdo de como
+		// se hace q es más probable.
+		do {
+			mensajeError = "";
+			Scanner scan = new Scanner(System.in);
+			texto = scan.next();
+
+			// utilizo normalizaEspacios
+			texto = normalizaEspacios(texto);
+			if (texto.isEmpty()) {
+				mensajeError += "error repite";
+				continue;
+			}
+
+		} while (!mensajeError.isEmpty());
 		return texto;
+
 	}
 
 	public static int pedirNumero() {
@@ -67,9 +81,8 @@ public class Utilidades {
 	public static void vocalesTexto() {
 		String texto = "";
 		texto = pedirTexto();
-		
-		
-		// Utilizo el metodo normaliza espacios  
+
+		// Utilizo el metodo normaliza espacios
 		texto = normalizaEspacios(texto);
 
 		int contadorVocales = 0;
@@ -98,10 +111,11 @@ public class Utilidades {
 
 		}
 	}
+
 //utilizado en el metodo vocales de texto pedriTexto() y vocalesTexto().
 	public static String normalizaEspacios(String s) {
 		String espaciosNormalizados = s.strip();
 		return espaciosNormalizados;
 	}
-	
+
 }

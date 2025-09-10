@@ -29,7 +29,7 @@ public class Main {
 			}
 			}
 
-		} while (opcion == 6);
+		} while (opcion != 6);
 	}
 
 }
