@@ -13,8 +13,7 @@ public class Utilidades {
 
 		String mensajeError;
 		String texto = "";
-		// no me ha valido para nada añadir un control de error,o no me acuerdo de como
-		// se hace q es más probable.
+		// control de error String en blanco.
 		do {
 			mensajeError = "";
 			Scanner scan = new Scanner(System.in);
